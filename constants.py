@@ -1,6 +1,6 @@
 LEXEM_REGEXES = [
     # Comments and whitespaces
-    (r"\/\/.*", "COMMENT"),
+    (r"--.*", "COMMENT"),
     (r"[ \t\n]+", None),
 
     # Keywords
