@@ -1,0 +1,13 @@
+var x: int;
+var y: int;
+var z: bool;
+
+read x, y;
+z = (x > y) or (y < 10);
+
+while not z loop
+    write x;
+    x = x + 1;
+    y = y - 1;
+    z = (x > y) or (y < 10);
+end;
