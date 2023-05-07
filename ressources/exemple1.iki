@@ -1,5 +1,4 @@
-https://cs.lmu.edu/~ray/notes/iki/
-
+-- https://cs.lmu.edu/~ray/notes/iki/
 -- An Iki program
 var x: int;
 var y: int;

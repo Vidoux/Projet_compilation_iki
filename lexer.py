@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 import re
-from compiler.constants import LEXEM_REGEXES
+from constants import LEXEM_REGEXES
 
 import logging
 

@@ -1,3 +1,4 @@
+```Ohm
 Iki {
   Program     =  Block
   Block       =  (Stmt ";")+
@@ -54,3 +55,4 @@ Iki {
   space      +=  comment
   comment     =  "--" (~"\n" any)* "\n"
 }
+```
