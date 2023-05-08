@@ -2,10 +2,10 @@ class IKINode:
     def __init__(self):
         self.name = "IKINode"
 
-    def accept(self, visitor):
+    def accept(self, visitor, parent=None):
         method_name = 'visit_' + self.name
         visitor_method = getattr(visitor, method_name)
-        return visitor_method(self)
+        return visitor_method(self, parent)
 
 
 class Program(IKINode):

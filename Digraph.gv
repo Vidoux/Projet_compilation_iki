@@ -1,46 +1,55 @@
 digraph {
-	rankdir=LR
 	0 [label=Program]
 	1 [label=Block]
 	0 -> 1
 	2 [label="Declaration(x, int)"]
 	1 -> 2
 	3 [label="Declaration(y, int)"]
-	2 -> 3
+	1 -> 3
 	4 [label=WhileLoop]
-	3 -> 4
-	5 [label="BinaryOperator(-)"]
+	1 -> 4
+	5 [label="-"]
 	4 -> 5
-	6 [label="VarExp(y)"]
+	6 [label=VarExp]
 	5 -> 6
-	7 [label="Literal(5)"]
+	7 [label=y]
 	6 -> 7
-	8 [label=Block]
-	7 -> 8
-	9 [label="Declaration(y, int)"]
-	8 -> 9
-	10 [label=Read]
+	8 [label=5]
+	5 -> 8
+	9 [label=Block]
+	4 -> 9
+	10 [label="Declaration(y, int)"]
 	9 -> 10
-	11 [label="VarExp(x)"]
-	10 -> 11
-	12 [label="VarExp(y)"]
+	11 [label=Read]
+	9 -> 11
+	12 [label=VarExp]
 	11 -> 12
-	13 [label=Assignment]
+	13 [label=x]
 	12 -> 13
-	14 [label="VarExp(x)"]
-	13 -> 14
-	15 [label="BinaryOperator(*)"]
+	14 [label=VarExp]
+	11 -> 14
+	15 [label=y]
 	14 -> 15
-	16 [label="Literal(2)"]
-	15 -> 16
-	17 [label="BinaryOperator(+)"]
+	16 [label=Assignment]
+	9 -> 16
+	17 [label=VarExp]
 	16 -> 17
-	18 [label="Literal(3)"]
+	18 [label=x]
 	17 -> 18
-	19 [label="VarExp(y)"]
-	18 -> 19
-	20 [label=Write]
+	19 [label="*"]
+	16 -> 19
+	20 [label=2]
 	19 -> 20
-	21 [label="Literal(5)"]
-	20 -> 21
+	21 [label="+"]
+	19 -> 21
+	22 [label=3]
+	21 -> 22
+	23 [label=VarExp]
+	21 -> 23
+	24 [label=y]
+	23 -> 24
+	25 [label=Write]
+	1 -> 25
+	26 [label=5]
+	25 -> 26
 }

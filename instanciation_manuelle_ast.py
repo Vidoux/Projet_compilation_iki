@@ -23,8 +23,8 @@ if __name__ == "__main__":
     ])
     program = Program(block)
 
-    pp = PrettyPrinter()
-    program.accept(pp)
+    # pp = PrettyPrinter()
+    # program.accept(pp)
     ppg = GraphPrinter()
     program.accept(ppg)
     ppg.graph.render();
