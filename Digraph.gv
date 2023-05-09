@@ -2,54 +2,46 @@ digraph {
 	0 [label=Program]
 	1 [label=Block]
 	0 -> 1
-	2 [label="Declaration(x, int)"]
+	2 [label="Declaration(x, TYPE_INT)"]
 	1 -> 2
-	3 [label="Declaration(y, int)"]
+	3 [label="Declaration(y, TYPE_INT)"]
 	1 -> 3
-	4 [label=WhileLoop]
+	4 [label="Declaration(z, TYPE_BOOL)"]
 	1 -> 4
-	5 [label="-"]
-	4 -> 5
+	5 [label=Read]
+	1 -> 5
 	6 [label=VarExp]
 	5 -> 6
-	7 [label=y]
+	7 [label=x]
 	6 -> 7
-	8 [label=5]
+	8 [label=VarExp]
 	5 -> 8
-	9 [label=Block]
-	4 -> 9
-	10 [label="Declaration(y, int)"]
-	9 -> 10
-	11 [label=Read]
-	9 -> 11
-	12 [label=VarExp]
+	9 [label=y]
+	8 -> 9
+	10 [label=Assignment]
+	1 -> 10
+	11 [label=VarExp]
+	10 -> 11
+	12 [label=z]
 	11 -> 12
-	13 [label=x]
-	12 -> 13
-	14 [label=VarExp]
-	11 -> 14
-	15 [label=y]
+	13 [label=or]
+	10 -> 13
+	14 [label=">"]
+	13 -> 14
+	15 [label=VarExp]
 	14 -> 15
-	16 [label=Assignment]
-	9 -> 16
+	16 [label=x]
+	15 -> 16
 	17 [label=VarExp]
-	16 -> 17
-	18 [label=x]
+	14 -> 17
+	18 [label=y]
 	17 -> 18
-	19 [label="*"]
-	16 -> 19
-	20 [label=2]
+	19 [label="<"]
+	13 -> 19
+	20 [label=VarExp]
 	19 -> 20
-	21 [label="+"]
-	19 -> 21
-	22 [label=3]
-	21 -> 22
-	23 [label=VarExp]
-	21 -> 23
-	24 [label=y]
-	23 -> 24
-	25 [label=Write]
-	1 -> 25
-	26 [label=5]
-	25 -> 26
+	21 [label=y]
+	20 -> 21
+	22 [label=10]
+	19 -> 22
 }

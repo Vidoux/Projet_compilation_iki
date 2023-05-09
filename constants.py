@@ -11,7 +11,7 @@ LEXEM_REGEXES = [
     (r"write", "WRITE"),
     (r"while", "WHILE"),
     (r"loop", "LOOP"),
-    (r"end", "END"),
+    (r"endw", "ENDW"),
     (r"true", "BOOL_LIT_TRUE"),
     (r"false", "BOOL_LIT_FALSE"),
     (r"or", "OR"),

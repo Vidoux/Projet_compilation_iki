@@ -10,4 +10,4 @@ while not z loop
     x = x + 1;
     y = y - 1;
     z = (x > y) or (y < 10);
-end;
+endw;

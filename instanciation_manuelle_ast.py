@@ -1,4 +1,5 @@
 from ast_iki import *
+from visitors.Checker import Checker
 from visitors.GraphPrinter import GraphPrinter
 from visitors.PrettyPrinter import PrettyPrinter
 
@@ -23,8 +24,11 @@ if __name__ == "__main__":
     ])
     program = Program(block)
 
-    # pp = PrettyPrinter()
-    # program.accept(pp)
+    pp = PrettyPrinter()
+    program.accept(pp)
     ppg = GraphPrinter()
     program.accept(ppg)
-    ppg.graph.render();
+    ppg.graph.render()
+
+    checker = Checker()
+    program.accept(checker)
