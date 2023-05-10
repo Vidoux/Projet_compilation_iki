@@ -47,13 +47,13 @@ Voici un aperçu de la syntaxe de Iki :
 - Les opérations d'entrée et de sortie sont effectuées à l'aide des mots-clés `read` et `write` respectivement. Par exemple, `read x;` ou `write x;`.
 - Les boucles sont définies en utilisant les mots-clés `while`, `loop` et `endw`. Par exemple, `while x > 0 loop x = x - 1; endw;`.
 
-La syntaxe complète du langage, est décrite sur le [site](https://cs.lmu.edu/~ray/notes/iki/) avec le langage Ohm
+La syntaxe complète du langage, est décrite sur ce [site](https://cs.lmu.edu/~ray/notes/iki/) avec le langage Ohm
 
 ### Pourquoi ce langage ?
 
-Le langage iki est un langage que nous ne connaissions pas et que nous n'avions jamais utilisé (il n'a d'ailleur nullement pour objectif d'être utilisé) c'était donc une bonne base pour reprendre tout le cours de compilation de 0. Reprendre de zero signifie ici comprendre la syntaxe du langage et son implémentation jusqu'à être capapble de coder la chaine de compilation pour dire si oui ou non le code est conforme aux standards du langage.
+Le langage iki est un langage que nous ne connaissions pas et que nous n'avions jamais utilisé (il n'a d'ailleur nullement pour objectif d'être utilisé) c'était donc une bonne base pour reprendre tout le cours de compilation de 0. Reprendre de zero signifie ici comprendre la syntaxe du langage et son implémentation jusqu'à être capable de coder la chaine de compilation pour dire si oui ou non le code est conforme aux standards du langage.
 
-Par ailleurs, c'est un langage très simplifié. Cela nous permet de nous concentrer sur la qualité du code. Il aurait été trop ambitieux de prendre un langage complet pour prétendre dévelloper une chaine de compilation complète. Nous avons fait le choix d'un langage simple pour pouvoir couvrir tout le langage et proposer un projet qui reprennent, en les approfondissant, tous les concepts étudiés, sur un lanage nouveau.
+Par ailleurs, c'est un langage très simplifié. Cela nous permet de nous concentrer sur la qualité du code. Il aurait été trop ambitieux de prendre un langage complet pour prétendre développer une chaine de compilation complète. Nous avons fait le choix d'un langage simple pour pouvoir couvrir tout le langage et proposer un projet qui reprennent, en les approfondissant, tous les concepts étudiés, sur un langage nouveau.
 
 ### Exemple de programme écrit en Iki
 Voici un programme écrit en Iki :
@@ -100,7 +100,7 @@ L'AST est utilisé par le visiteur pour effectuer diverses analyses et transform
 Lorsque le programme est compilé, l'AST est parcouru par différentes passes de compilation qui effectuent des transformations sur le programme en utilisant les informations contenues dans l'AST. Ces transformations peuvent inclure des optimisations de code, la vérification de la cohérence du code ou la génération de code machine. Chaque étape peut être effectuée par un "visiteur" différent, thème de la prochine section.
 
 ## Visiteur
-Nous utilisont le designe pattern Visitor (Patron de conception visiteur). Ce design pattern donnes les avantages suivants (extrait du cours):
+Nous utilisons le designe pattern Visitor (Patron de conception visiteur). Ce design pattern donnes les avantages suivants (extrait du cours):
 - **Eviter de modifier la définition des classes** (qui peuvent être nombreuses)
 - Découpler l'algorithme et la structure de données sur laquelle il opère
 - Centraliser l'algorithme dans une seule classe
@@ -109,7 +109,7 @@ Nous utilisont le designe pattern Visitor (Patron de conception visiteur). Ce de
 Nous avons réalisé un visiteur nommé "Checker". 
 Ce visiteur sert à valider la sémantique d'un programme en vérifiant que les règles sémantiques sont respectées. Plus précisément, il vérifie que les variables sont correctement déclarées, que les types des expressions sont compatibles, que les opérations sont valides, etc.
 
-Plus précisément, chaque méthode du visiteur correspond à un type de nœud dans l'AST. La méthode est appelée sur le nœud correspondant et effectue des vérifications sémantiques spécifiques pour ce type de nœud. Par exemple, la méthode visit_Declaration vérifie que la variable déclarée n'existe pas déjà dans la table des symboles et l'ajoute à la table des symboles si elle n'existe pas. La méthode visit_Assignment vérifie que la variable à gauche de l'opérateur d'assignation a été déclarée auparavant. La méthode visit_BinaryOperator vérifie que les types des deux opérandes sont compatibles pour l'opérateur binaire correspondant.
+Chaque méthode du visiteur correspond à un type de nœud dans l'AST. La méthode est appelée sur le nœud correspondant et effectue des vérifications sémantiques spécifiques pour ce type de nœud. Par exemple, la méthode visit_Declaration vérifie que la variable déclarée n'existe pas déjà dans la table des symboles et l'ajoute à la table des symboles si elle n'existe pas. La méthode visit_Assignment vérifie que la variable à gauche de l'opérateur d'assignation a été déclarée auparavant. La méthode visit_BinaryOperator vérifie que les types des deux opérandes sont compatibles pour l'opérateur binaire correspondant.
 
 Le visiteur utilise une table des symboles pour enregistrer les informations sur les variables déclarées, telles que leur nom et leur type. Les erreurs sont levées si une variable n'est pas déclarée ou si les types ne correspondent pas. Si aucune erreur n'est levée pendant la visite de l'AST, le programme est sémantiquement valide.
 
