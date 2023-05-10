@@ -1,4 +1,4 @@
-## 🙇 Author
+## 🙇 Authors
 #### Thibault PERCHOC
 #### Tanguy VIDAL
 
@@ -6,18 +6,31 @@
 Ce projet est un mini compilateur pour le langage de programmation Iki, développé en Python. Le compilateur Iki comprend un lexer, un parser, un AST (Abstract Syntax Tree) et un visiteur. Il dispose de fonctionnalités graphiques supplémentaires. Le produit du compilateur est visible dans les fichiers produits et dans la console de débogage.
 
 # Table des Matières
-1. [Compilateur Iki](#compilateur-iki)
-    1. [Langage Iki](#langage-iki)
-        1. [Syntaxe du langage](#syntaxe-de-iki)
-        2. [Exemple de programme écrit en Iki](#exempleiki)
-2. [Lexer](#lexer)
-3. [Parser](#parser)
-4. [AST (Abstract Syntax Tree)](#ast-abstract-syntax-tree)
-5. [Visiteur](#visiteur)
-6. [GraphPrinter](#graphprinter)
-7. [PrettyPrinter](#prettyprinter)
-8. [Comment utiliser ce compilateur](#comment-utiliser-ce-compilateur)
 
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+  * [🙇 Authors](#-authors)
+  * [Compilateur Iki](#compilateur-iki)
+  * [Table des Matières](#table-des-matières)
+  * [Langage Iki](#langage-iki)
+    + [Syntaxe de Iki](#syntaxe-de-iki)
+    + [Pourquoi ce langage ?](#pourquoi-ce-langage-)
+    + [Exemple de programme écrit en Iki](#exemple-de-programme-écrit-en-iki)
+  * [Base technique du projet](#base-technique-du-projet)
+  * [Lexer](#lexer)
+  * [Parser](#parser)
+  * [AST (Abstract Syntax Tree)](#ast-abstract-syntax-tree)
+  * [Visiteur](#visiteur)
+    + [Checker](#checker)
+    + [GraphPrinter](#graphprinter)
+    + [PrettyPrinter](#prettyprinter)
+  * [Comment utiliser ce compilateur](#comment-utiliser-ce-compilateur)
+    + [Prérequis](#prérequis)
+    + [Ce que vous retrouvez dans ce dépôt](#ce-que-vous-retrouvez-dans-ce-dépôt)
+    + [Exécuter le code](#exécuter-le-code)
+    + [Exécuter les tests unitaires](#exécuter-les-tests-unitaires)
+  * [Comment contribuer à ce projet](#comment-contribuer-à-ce-projet)
+  * [Contact](#contact)
+<!-- TOC end -->
 
 ## Langage Iki
 Iki est un petit langage de programmation qui a été développé pour illustrer les concepts de base de la compilation. Pour plus d'informations sur le langage Iki, consultez [ce lien](https://cs.lmu.edu/~ray/notes/iki/).
