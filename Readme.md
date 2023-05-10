@@ -137,7 +137,7 @@ Pour utiliser ce compilateur, assurez-vous d'avoir:
 
 ### Exécuter le code
 
-Pour éxécuter le main:
+Pour exécuter le main:
 ```bash
 # Se placer dans le dossier racine du projet
 python3 .\__main__.py <chemin_vers_code_iki>
