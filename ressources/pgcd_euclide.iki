@@ -1,0 +1,20 @@
+-- Ce code demande à l'utilisateur d'entrer deux entiers, "a" et "b".
+-- Ensuite, il exécute l'algorithme itératif du PGCD en utilisant la
+-- méthode de l'algorithme d'Euclide. Tant que "b" n'est pas égal à zéro,
+-- le code échange les valeurs de "a" et "b" et met à jour "b" avec le reste
+-- de la division de "a" par "b". Finalement, il affiche le PGCD, qui est la
+-- valeur finale de "a".
+
+var a: int;
+var b: int;
+var temp: int;
+
+read a;
+read b;
+
+while b != 0 loop
+    temp = b;
+    b = a % b;
+    a = temp;
+endw;
+

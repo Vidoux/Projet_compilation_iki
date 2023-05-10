@@ -1,12 +1,15 @@
 var x: int;
 var y: int;
 var z: bool;
+var t: bool;
 
 read x, y;
 z = (x > y) or (y < 10);
+t = false;
 
 while not z loop
     write x;
+    t = false - 6;
     x = x + 1;
     y = y - 1;
     z = (x > y) or (y < 10);

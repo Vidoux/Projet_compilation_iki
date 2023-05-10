@@ -2,9 +2,8 @@
 -- An Iki program
 var x: int;
 var y: int;
-while y - 5 == 3 loop
-  var y: int;
+while y != 3 loop
   read x, y;
   x = 2 * (3 + y);
-end;
+endw;
 write 5;

@@ -118,7 +118,6 @@ class Parser:
         block_node = self.parse_block("while")
 
         self.expect("ENDW")
-        self.expect("SEMICOLON")
         return WhileLoop(cond_node, block_node)
 
     def parse_exp(self):
@@ -159,7 +158,8 @@ class Parser:
     def parse_exp5(self):
         left = self.parse_exp6()
         while self.show_next().tag in ["MULT", "DIV", "MOD"]:
-            op = self.expect("MULOP").value
+            op = self.show_next().value
+            self.accept()
             right = self.parse_exp6()
             left = BinaryOperator(op, left, right)
         return left
@@ -174,8 +174,10 @@ class Parser:
 
     def parse_exp7(self):
         if self.show_next().tag == "BOOL_LIT_TRUE":
+            self.accept()
             return Literal(True)
         elif self.show_next().tag == "BOOL_LIT_FALSE":
+            self.accept()
             return Literal(False)
         elif self.show_next().tag == "INT_LIT":
             return Literal(int(self.expect("INT_LIT").value))
