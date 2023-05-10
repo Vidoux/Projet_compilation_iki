@@ -1,5 +1,6 @@
 from ast_iki import *
 
+
 class Checker:
     def __init__(self):
         self.symbol_table = {}
@@ -25,12 +26,13 @@ class Checker:
         variable_name = node.var_exp.identifier.identifier_name
         if variable_name not in self.symbol_table:
             raise NameError(f"Variable '{variable_name}' not declared.")
-        
+
         variable_type = self.symbol_table[variable_name].type_name
         expression_type = self.get_operand_type(node.exp)
-        
+
         if variable_type != expression_type:
-            raise TypeError(f"Type mismatch in assignment: variable '{variable_name}' expects type '{variable_type}', but found type '{expression_type}'.")
+            raise TypeError(
+                f"Type mismatch in assignment: variable '{variable_name}' expects type '{variable_type}', but found type '{expression_type}'.")
 
     def visit_Read(self, node, parent=None):
         for var_exp in node.var_exps:
@@ -46,7 +48,7 @@ class Checker:
     def visit_WhileLoop(self, node, parent=None):
         node.exp.accept(self)
         node.block.accept(self)
-		
+
     def get_operand_type(self, operand):
         if isinstance(operand, VarExp):
             variable_name = operand.identifier.identifier_name
@@ -66,9 +68,11 @@ class Checker:
                 return "TYPE_INT"
             elif operand.operator in ("<", "<=", ">", ">=", "==", "!=", "or", "and", "not"):
                 return "TYPE_BOOL"
+        elif isinstance(operand, UnaryOperator):
+            return "TYPE_BOOL"
         else:
             raise TypeError("Invalid operand type.")
-            
+
     def visit_BinaryOperator(self, node, parent=None):
         node.left_operand.accept(self)
         node.right_operand.accept(self)
@@ -76,16 +80,16 @@ class Checker:
         right_type = self.get_operand_type(node.right_operand)
         if left_type != right_type:
             raise TypeError(f"Type mismatch in binary operator '{node.operator}'.")
-            
+
     def visit_UnaryOperator(self, node, parent=None):
         node.operand.accept(self)
         operand_type = self.symbol_table.get(node.operand.identifier.identifier_name, None)
         if operand_type != node.type_:
             raise TypeError(f"Type mismatch in unary operator '{node.operator}'.")
-            
+
     def visit_Literal(self, node, parent=None):
         pass
-    
+
     def visit_VarExp(self, node, parent=None):
         variable_name = node.identifier.identifier_name
         if variable_name not in self.symbol_table:
